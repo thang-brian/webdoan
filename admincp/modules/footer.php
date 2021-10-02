@@ -1,0 +1,1 @@
+<p class="footer">Copyright by SE 447 I - NHÓM 5</p>
