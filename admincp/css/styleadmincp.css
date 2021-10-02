@@ -1,0 +1,68 @@
+.admincp_list{
+    border: 1px solid green;
+    width: 17%;
+}
+.logo{
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border:1px solid #ff80ff;
+    height: 170px;
+}
+.m{
+    display:flex;
+}
+.main{
+    width:90%;
+    padding-left: 10px;
+}
+a{
+    text-decoration: none;
+}
+.button{
+    background-color: red;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+}
+ul.admincp_list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ul.admincp_list li {
+    float: left;
+    margin: 5px;
+}
+.admincp_list li a{
+    color:black;
+}
+li a:hover{
+    background-color: black;
+    color:white;
+}
+.clear{
+	clear: both;
+}
+h3.title_admin {
+    text-align: center;
+    font-size: 40px;
+    color: black;
+    font-weight: bold;
+}
+.wrapper{
+	border:1px solid #000;
+	height: auto;
+	width: 90%;
+	margin:0 auto;
+}
+.footer{
+    text-align: center;
+    background-color: yellow;
+    margin:0;
+    border: 1px solid green;
+}
