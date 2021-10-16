@@ -1,12 +1,14 @@
-<p><p style="font-weight: bold;">Giỏ hàng</p> <br> 
+<div><h3 style="font-weight: bold;">Giỏ hàng</h3> <br> 
   <?php
   if(isset($_SESSION['dangky'])){
     echo 'Xin chào: '.'<span style="color:violet">'.$_SESSION['dangky'].'</span>';
-   
   } 
   ?>
-</p>
+</div>
   <?php
+  if(isset($_SESSION['message'])){
+    echo '<p class="text-danger">'.$_SESSION['message'].'</p>';
+  }
   if(isset($_SESSION['cart'])){
   	$i = 0;
   	$tongtien = 0;
@@ -15,20 +17,20 @@
   		$tongtien+=$thanhtien;
   		$i++;
   ?>
-  <table style="width:100%;text-align: center;border-collapse: collapse;" border="1">
+  <table class="table table-bordered">
   <tr>
-    <th>Hình ảnh</th>
-    <th>Tên sản phẩm</th>
-    <th>Giá tiền</th>
-    <th>Số lượng</th>
-    <th>Quản lý</th>
+    <th style="width:20%">Hình ảnh</th>
+    <th style="width:40%">Tên sản phẩm</th>
+    <th style="width:20%">Giá tiền</th>
+    <th style="width:10%">Số lượng</th>
+    <th style="width:10%">Quản lý</th>
   </tr>
   <tr>
     <td><img src="admincp/modules/quanlysp/uploads/<?php echo $cart_item['hinhanh']; ?>" width="150px" height="150px"></td>
-    <td><?php echo $cart_item['tensanpham']; ?></td>
-    <td><?php echo number_format($thanhtien,0,',','.').'vnđ' ?></td>
+    <td class="text-nowrap"><?php echo $cart_item['tensanpham']; ?></td>
+    <td class="text-primary"><?php echo number_format($thanhtien,0,',','.').'vnđ' ?></td>
     <td>
-    	<a href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id'] ?>"><i class="fa fa-plus fa-style" aria-hidden="true"></i></a>
+    	<a href="pages/main/themgiohang.php?cong=<?php echo $cart_item['id'] ?>&id="><i class="fa fa-plus fa-style" aria-hidden="true"></i></a>
     	<?php echo $cart_item['soluong']; ?>
     	<a href="pages/main/themgiohang.php?tru=<?php echo $cart_item['id'] ?>"><i class="fa fa-minus fa-style" aria-hidden="true"></i></a>
     </td>
@@ -42,8 +44,8 @@
     <td colspan="8">
       <br>
 
-    	<button style="" type="button">
-       <p style="">
+    	<button type="button">
+       <p>
           <a style="color: red;text-decoration: none;" href="pages/main/themgiohang.php?xoatatca=1" onclick="return confirm('Bạn có muốn xóa tất cả sản phẩm ?')">Xoá tất cả
           </a>
       </p> 
@@ -53,7 +55,7 @@
           ?>
            <button type="button">
               <p>
-                <a style="color: green;text-decoration: none" href="index.php?quanly=muahang">Mua hàng
+                <a style="color: green;text-decoration: none" href="index.php?quanly=muahang">Xác nhận mua hàng
                 </a>
               </p>
             </button>

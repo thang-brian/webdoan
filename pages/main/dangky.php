@@ -41,7 +41,7 @@
 	</tr>
 	<tr>
 		<td>Email</td>
-		<td><input type="text" size="50" name="email"></td>
+		<td><input type="text" size="50" name="email"><small id="emailHelp" class="form-text text-muted">Đây sẽ là mục nhập Tài khoản ở trang đăng nhâp</small></td>
 	</tr>
 	<tr>
 		<td>Điện thoại</td>
@@ -63,7 +63,7 @@
 	</tr>
 	<tr>
 		<td><a href="index.php?quanly=dangnhap">
-			<button style="background: #d3e600; color: black;" type="button">Đăng nhập</button>
+			<button style="background: #d3e600; color: black;" type="button">Đăng nhập nếu đã có tài khoản</button>
 			</a>
 		</td>
 		<td><input style="background: #23962e;color: white;" class="btndangky" type="submit" name="dangky" value="Đăng ký"></td>

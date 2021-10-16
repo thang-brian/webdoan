@@ -7,7 +7,7 @@
 </a>
 <fieldset>
   <legend>Liệt kê danh mục sản phẩm</legend>
-  <table style="width:100%" border="1" style="border-collapse: collapse;">
+  <table class="table table-bordered" style="width:100%" style="border-collapse: collapse;">
   <tr>
     <th>Id</th>
     <th>Tên danh mục</th>
@@ -23,7 +23,7 @@
     <td><?php echo $i ?></td>
     <td><?php echo $row['tendanhmuc'] ?></td>
     <td>
-      <a onclick="return confirm('Bạn có muốn xóa danh mục này ?')" href="modules/quanlydanhmucsp/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xoá</a> | <a href="?action=quanlydanhmucsanpham&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</a> 
+      <a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa danh mục này ?')" href="modules/quanlydanhmucsp/xuly.php?iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Xoá</a> | <a class="btn btn-primary" href="?action=quanlydanhmucsanpham&query=sua&iddanhmuc=<?php echo $row['id_danhmuc'] ?>">Sửa</a> 
     </td>
    
   </tr>

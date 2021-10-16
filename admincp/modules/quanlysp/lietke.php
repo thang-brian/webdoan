@@ -7,7 +7,8 @@
 </a>
 <fieldset>
   <legend>Liệt kê danh mục sản phẩm</legend>
-  <table style="width:100%" border="1" style="border-collapse: collapse;">
+  <div class="table-responsive">
+  <table style="width:100%" class="table table-bordered">
   <tr>
     <th>Id</th>
     <th>Tên sản phẩm</th>
@@ -17,8 +18,8 @@
     <th>Danh mục</th>
     <th>Mã sp</th>
     <th>Tóm tắt</th>
-    <th>Trạng thái</th>
-    <th>Quản lý</th>
+    <th style="width:10%">Trạng thái</th>
+    <th style="width:10%">Quản lý</th>
   
   </tr>
   <?php
@@ -44,7 +45,7 @@
       
     </td>
     <td>
-      <a onclick="return confirm('Bạn có muốn xóa sản phẩm ?')" href="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Xoá</a> | <a href="?action=quanlysp&query=sua&idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a> 
+      <a class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa sản phẩm ?')" href="modules/quanlysp/xuly.php?idsanpham=<?php echo $row['id_sanpham'] ?>">Xoá</a> | <a class="btn btn-primary" href="?action=quanlysp&query=sua&idsanpham=<?php echo $row['id_sanpham'] ?>">Sửa</a> 
     </td>
    
   </tr>
@@ -52,5 +53,7 @@
   } 
   ?>
  
-</table>
+  </table>
+  </div>
+
 </fieldset>

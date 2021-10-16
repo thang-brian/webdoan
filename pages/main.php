@@ -38,6 +38,10 @@
 					include("main/lichsumuahang.php");
 				}elseif($tam=='chitietls'){
 					include("main/chitietls.php");
+				}elseif($tam=='editttgh'){
+					include("main/suattgiaohang.php");
+				}elseif($tam=='ttvnpay'){
+					include("vnpay/index.php");
 				}else{
 					include("main/index.php");
 				}

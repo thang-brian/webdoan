@@ -18,12 +18,21 @@
   <?php 
     if($trangthai ==3){
       echo '<p style="color:red">Đơn hàng đã hủy</p>';
+    }elseif($trangthai ==5){
+      echo '<p style="color:red">Đơn hàng bị shop hủy, đã được thanh toán</p>';
+    }elseif($trangthai ==2){
+      echo '<p style="color:green">Đơn hàng đã thanh toán, đang được xử lý</p>';
+    }elseif($trangthai==4){
+      echo '<p style="color:dark">Đơn đợi thanh toán, hãy liên lạc lại khách hàng trước khi giao </p>';
     }else{
       echo '<p style="color:green">Đơn hàng đang được xử lý</p>';
     }
   ?>
-  </h4> 
-<table style="width:100%" border="1" style="border-collapse: collapse;">
+  </h4>
+  <a href="?action=quanlydonhang&query=lietke" class="btn btn-success">
+	Quay lại
+  </a> 
+<table style="width:100%" class="table table-bordered">
   <tr>
     <th>Id</th>
     <th>Mã đơn hàng</th>

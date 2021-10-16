@@ -3,6 +3,7 @@
 	include('../../admincp/config/config.php');
 	//them so luong
 	if(isset($_GET['cong'])){
+		unset($_SESSION['message']);
 		$id=$_GET['cong'];
 		foreach($_SESSION['cart'] as $cart_item){
 			if($cart_item['id']!=$id){
@@ -24,6 +25,7 @@
 	}
 	//tru so luong
 	if(isset($_GET['tru'])){
+		unset($_SESSION['message']);
 		$id=$_GET['tru'];
 		foreach($_SESSION['cart'] as $cart_item){
 			if($cart_item['id']!=$id){
@@ -45,6 +47,7 @@
 	}
 	//xoa san pham
 	if(isset($_SESSION['cart'])&&isset($_GET['xoa'])){
+		unset($_SESSION['message']);
 		$id=$_GET['xoa'];
 		foreach($_SESSION['cart'] as $cart_item){
 
@@ -58,12 +61,14 @@
 	}
 	//xoa tat ca
 	if(isset($_GET['xoatatca'])&&$_GET['xoatatca']==1){
+		unset($_SESSION['message']);
 		unset($_SESSION['cart']);
 		header('Location:../../index.php?quanly=giohang');
 	}
 	//them sanpham vao gio hang
 	if(isset($_POST['themgiohang'])){
 		//session_destroy();
+		unset($_SESSION['message']);
 		$id=$_GET['idsanpham'];
 		$soluong=1;
 		$sql ="SELECT * FROM sanpham WHERE id_sanpham='".$id."' LIMIT 1";

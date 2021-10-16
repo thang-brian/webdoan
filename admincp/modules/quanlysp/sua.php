@@ -3,7 +3,7 @@
 	$query_sua_sp = mysqli_query($mysqli,$sql_sua_sp);
 ?>
 <p>Sửa sản phẩm</p>
-<table border="1" width="100%" style="border-collapse: collapse;">
+<table class="table table-bordered" width="100%" >
 <?php
 while($row = mysqli_fetch_array($query_sua_sp)) {
 ?>
@@ -84,7 +84,7 @@ while($row = mysqli_fetch_array($query_sua_sp)) {
 	    </td>
 	  </tr>
 	   <tr>
-	    <td colspan="2"><input type="submit" name="suasanpham" value="Sửa sản phẩm"></td>
+	    <td colspan="2"><input type="submit" name="suasanpham" class="btn btn-primary" value="Sửa sản phẩm"></td>
 	  </tr>
  </form>
  <?php

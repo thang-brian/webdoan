@@ -26,7 +26,7 @@
 	} 
 ?>
 <form action="" autocomplete="off" method="POST">
-		<table class="table-login" style="text-align: center;border-collapse: collapse;border:none">
+		<table class="table-login" class="table table-bordered">
 			<tr>
 				<td colspan="3"><h3>Đổi mật khẩu tài khoản </h3></td>
 			</tr>
@@ -53,7 +53,7 @@
 			</tr>
 			<tr>
 				
-				<td colspan="3"><input type="submit" name="doimatkhau" value="Đổi mật khẩu" style="width:20%; background-color: yellow;"></td>
+				<td colspan="3"><input type="submit" name="doimatkhau" value="Đổi mật khẩu" class="btn btn-success"></td>
 			</tr>
 		<tr>
 			

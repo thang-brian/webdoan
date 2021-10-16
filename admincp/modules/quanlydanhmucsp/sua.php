@@ -4,7 +4,7 @@
 ?>
 <fieldset>
 	<legend>Sửa danh mục sản phẩm</legend>
-	<table border="1" width="50%" style="border-collapse: collapse;">
+	<table class="table table-bordered" width="50%" style="border-collapse: collapse;">
  <form method="POST" action="modules/quanlydanhmucsp/xuly.php?iddanhmuc=<?php echo $_GET['iddanhmuc'] ?>">
  	<?php
  	while($dong = mysqli_fetch_array($query_sua_danhmucsp)) {
@@ -18,7 +18,7 @@
 	    <td><input type="text" value="<?php echo $dong['thutu'] ?>" name="thutu"></td>
 	  </tr>
 	   <tr>
-	    <td colspan="2"><input type="submit" name="suadanhmuc" value="Sửa danh mục sản phẩm"></td>
+	    <td colspan="2"><input class="btn btn-primary" type="submit" name="suadanhmuc" value="Sửa danh mục sản phẩm"></td>
 	  </tr>
 	  <?php
 	  } 

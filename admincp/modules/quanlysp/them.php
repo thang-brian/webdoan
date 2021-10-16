@@ -1,7 +1,7 @@
 
 <fieldset>
 	<legend>Thêm sản phẩm</legend>
-	<table border="1" width="100%" style="border-collapse: collapse;">
+	<table class="table table-bordered" width="100%" >
  <form method="POST" action="modules/quanlysp/xuly.php" enctype="multipart/form-data">
 	  <tr>
 	  	<td>Tên sản phẩm</td>
@@ -57,11 +57,11 @@
 	    </td>
 	  </tr>
 	   <tr>
-	    <td colspan="2"><input type="submit" name="themsanpham" value="Thêm sản phẩm"></td>
+	    <td colspan="2"><input type="submit" name="themsanpham" class="btn btn-primary" value="Thêm sản phẩm"></td>
 	  </tr>
  </form>
 </table>
 </fieldset>
-<a href="?action=quanlysp&query=them" class="btn btn-primary">
-	Thoát
+<a href="?action=quanlysp&query=them" class="btn btn-success">
+	Quay lại
 </a>

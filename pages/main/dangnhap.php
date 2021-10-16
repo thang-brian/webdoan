@@ -30,10 +30,11 @@
 			<tr>
 				<td colspan="3"><h3>Đăng nhập khách hàng</h3></td>
 			</tr>
-			<tr>
+			<div class="form-group">
 				<td>Tài khoản</td>
-				<td colspan="2"><input type="text" size="50" name="email" placeholder="Email..."></td>
-			</tr>
+				<td colspan="2"><input type="text" size="50" name="email" placeholder="Email..."><small id="emailHelp" class="form-text text-muted">Tài khoản là email lúc đăng ký</small></td>
+				
+			</div>
 			<tr>
 				<td>Mật khẩu</td>
 				<td colspan="2"><input id="pass" type="password" size="50" name="password" placeholder="Mật khẩu..."></td>
@@ -52,7 +53,7 @@
 			<tr>
 				<td>
 				<a href="index.php?quanly=dangky">
-					<button style="background: yellow; color: black;" type="button">Đăng ký</button> </a>
+					<button style="background: yellow; color: black;" type="button">Đăng ký nếu chưa có tài khoản</button> </a>
 				</td>
 				<td colspan="3"><input style="background: #23962e; color: white;width:30%;" type="submit" name="dangnhap" value="Đăng nhập"></td>
 				

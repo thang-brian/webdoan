@@ -15,15 +15,17 @@
   
 ?>
 <h3>Lịch sử mua hàng</h3>
-<table style="width:100%" border="1" style="border-collapse: collapse;">
-<tr>
-    <th>Tên hàng</th>
-    <th>Số lượng</th>
-    <th>Đơn giá</th>
-    <th>Thành tiền</th>
-    <th>Tình trạng</th>
-  
-</tr>
+<table class="table table-hover" style="width:100%" style="border-collapse: collapse;">
+<thead class="thead-light">
+  <tr>
+      <th>Tên hàng</th>
+      <th>Số lượng</th>
+      <th>Đơn giá</th>
+      <th>Thành tiền</th>
+      <th>Tình trạng</th>
+    
+  </tr>
+</thead>
 <?php
   $i = 0;
   while($row = mysqli_fetch_array($query_lietke_dh)){
@@ -40,6 +42,12 @@
         echo '<p style="color:blue">Đơn đợi duyệt</p>';
       }elseif($row['cart_status']==0){
         echo '<p style="color:green">Đang xử lý</p>';
+      }elseif($row['cart_status']==4){
+        echo '<p class="text-danger">Đợi thanh toán</p>';
+      }elseif($row['cart_status']==5){
+        echo '<p style="color:red">Đơn hủy, chờ hoàn tiền</p>';
+      }elseif($row['cart_status']==2){
+        echo '<p style="color:green">Đang xử lý đơn đã thanh toán</p>';
       }else{
         echo '<p style="color:red">Đơn đã hủy</p>';
       }

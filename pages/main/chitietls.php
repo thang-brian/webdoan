@@ -8,12 +8,26 @@ while($row = mysqli_fetch_array($query_donhuy)){
     $trangthai = $row['cart_status'];
 }
 ?>
-<h3>Chi tiết đơn hàng #<?php echo $id; ?> - 
-<?php if($trangthai==1){
-        echo 'Đơn đợi duyệt';
-      }elseif($trangthai==0){
-        echo 'Đang xử lý';
-      }else{
-        echo 'Đơn đã hủy';
-      }?>
-</h3>
+<h3>Chi tiết đơn hàng #<?php echo $id; ?> </h3>  
+<div>
+  <p>Trạng thái: 
+  <?php if($trangthai==1){
+          echo 'Đơn đợi duyệt';
+        }elseif($trangthai==0){
+          echo 'Đang xử lý đơn hàng';
+        }elseif($trangthai==4){
+          echo '<p class="text-danger">Đơn đợi thanh toán, hãy thực hiện chuyển khoản </p> </br> <b>Ngân hàng B - STK: 123456 hoặc liên hệ tổng đài hỗ trợ (1.000đ/phút): 19009001</b> </br>';
+        }elseif($trangthai==2){
+          echo 'Đơn của bạn đã thanh toán, đang xử lý đơn hàng';
+        }elseif($trangthai==5){
+          echo 'Đơn bị shop hủy, vui lòng chờ hoàn tiền';
+        }else{
+          echo 'Đơn đã hủy';
+        }?>
+  </p>
+  <a href="index.php?quanly=lichsu" class="btn btn-success">
+	Quay lại
+  </a>
+  
+</div>
+
