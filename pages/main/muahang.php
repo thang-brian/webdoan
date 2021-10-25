@@ -1,5 +1,10 @@
 <h3>Thông tin đơn hàng</h3>
 <!-- Địa chỉ nhận hàng -->
+<?php 
+  if(empty($_SESSION['dangky'])){
+    echo '<p class="text-danger">Hãy thực hiện đăng nhập / đăng ký</p>';
+  }else{
+?>
 <p><i class="far fa-user-circle"></i> 
   <?php echo $_SESSION['dangky'];?> 
 </p>
@@ -85,6 +90,6 @@
     Quay lại giỏ hàng
     </a>
     <?php
-    }}
+    }}}
   ?>
   

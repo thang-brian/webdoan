@@ -49,7 +49,7 @@
         <a class="btn btn-info" href="index.php?action=donhang&query=xemdonhang&code=<?php echo $row['code_cart'] ?>&cart_status=<?php echo $row['cart_status'] ?>">Xem đơn hàng</a> 
       </td>
       <?php 
-      if($row['cart_status']==1 || $row['cart_status']==4 || $row['cart_status']==2 ){
+      if($row['cart_status']==1 || $row['cart_status']==4 ){
       ?>
       <td>
         <a class="btn btn-danger" onclick="return confirm('Bạn có muốn hủy đơn hàng này?')" href="index.php?action=donhang&query=huydon&code=<?php echo $row['code_cart'] ?>">Hủy đơn</a>

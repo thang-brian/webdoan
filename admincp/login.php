@@ -22,11 +22,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<title>Login Admincp</title>
 	<style type="text/css">
 		body{
-			background:#f2f2f2;
+			/* background:#f2f2f2; */
 		}
 		.wrapper-login {
 		    width: 35%;
@@ -47,8 +47,8 @@
 <body>
 <div class="wrapper-login">
 	<form action="" autocomplete="off" method="POST">
-		<table border="1" class="table-login" style="text-align: center;border-collapse: collapse;">
-			<tr>
+		<table  class="table-login table-bordered table" style="text-align: center;border-collapse: collapse;">
+			<tr class="table-active">
 				<td colspan="2"><h3>Đăng nhập Admin</h3></td>
 			</tr>
 			<tr>

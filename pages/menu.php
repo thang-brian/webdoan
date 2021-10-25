@@ -32,8 +32,7 @@
 				<li><a href="index.php?quanly=tintuc">Tin tức</a></li>
 				<li><a href="index.php?quanly=lienhe">Liên hệ</a></li>
 				<li style="float: right">
-					<a href="index.php?quanly=giohang" class="cart">
-						
+					<a href="index.php?quanly=giohang" class="cart">		
 				</a>
 				</li>
 					
@@ -41,7 +40,7 @@
 			</ul>
 			<p>
 				<form class="example" action="index.php?quanly=timkiem" method="POST">
-					<input type="text" placeholder="Tìm kiếm sản phẩm..." name="tukhoa">
+					<input type="search" class="rounded" placeholder="Tìm kiếm sản phẩm..." name="tukhoa">
 					<button type="submit" name="timkiem" ><i class="fa fa-search"></i></button>
 				</form>
 			</p>

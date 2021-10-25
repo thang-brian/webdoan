@@ -4,6 +4,8 @@
   $query_lietke_dh = mysqli_query($mysqli,$sql_lietke_dh);
   $sql_donhuy = "SELECT * FROM cart WHERE code_cart='".$code."'";
   $query_donhuy = mysqli_query($mysqli,$sql_donhuy);
+  $sql_pay = "SELECT * FROM payments WHERE code_cart='".$code."'";
+  $query_pay = mysqli_query($mysqli,$sql_pay);
 
 ?>
 <fieldset>
@@ -12,22 +14,22 @@
     $trangthai = $row['cart_status'];
   }
 ?>
-  <legend>Xem đơn hàng
-  </legend>
+  <h3>Xem đơn hàng</h3>
   <h4>
   <?php 
-    if($trangthai ==3){
-      echo '<p style="color:red">Đơn hàng đã hủy</p>';
-    }elseif($trangthai ==5){
-      echo '<p style="color:red">Đơn hàng bị shop hủy, đã được thanh toán</p>';
-    }elseif($trangthai ==2){
-      echo '<p style="color:green">Đơn hàng đã thanh toán, đang được xử lý</p>';
+    if($trangthai==1){
+      echo '<div class="p-3 mb-2 bg-primary text-white text-center">Đơn đợi duyệt</div>';
+    }elseif($trangthai==0){
+      echo '<div class="p-3 mb-2 bg-success text-white text-center">Đang xử lý đơn hàng</div>';
     }elseif($trangthai==4){
-      echo '<p style="color:dark">Đơn đợi thanh toán, hãy liên lạc lại khách hàng trước khi giao </p>';
+      echo '<div class="p-3 mb-2 bg-warning text-dark text-center"><p>Đơn đợi thanh toán (có thể thực hiện Hủy nếu vẫn chưa thanh toán)</div>';
+    }elseif($trangthai==2){
+      echo '<div class="p-3 mb-2 bg-success text-white text-center">Đơn đã thanh toán, đang xử lý đơn hàng</div>';
+    }elseif($trangthai==5){
+      echo '<div class="p-3 mb-2 bg-danger text-white text-center">Đơn bị shop hủy, vui lòng chờ hoàn tiền</div>';
     }else{
-      echo '<p style="color:green">Đơn hàng đang được xử lý</p>';
-    }
-  ?>
+      echo '<div class="p-3 mb-2 bg-danger text-white text-center">Đơn đã hủy</div>';
+    }?>
   </h4>
   <a href="?action=quanlydonhang&query=lietke" class="btn btn-success">
 	Quay lại
@@ -63,12 +65,53 @@
   <?php
   } 
   ?>
+  
   <tr>
-    <td style="text-align:center" colspan="6">
-      <p>Tổng tiền : <?php echo number_format($tongtien,0,',','.').'vnđ' ?></p>
+   <?php 
+   if($trangthai ==2){
+    ?>
+    <td class="p-3 mb-2 bg-light text-dark font-weight-bold"  style="text-align:center" colspan="6">
+      <p>Đã thanh toán phí giao hàng: 40.000vnđ</p>
+      <p>Tổng tiền : <?php echo number_format($tongtien+40000,0,',','.').'vnđ' ?></p>
     </td>
-   
-  </tr>
 
+  <?php }else{
+    ?>
+    <td class="p-3 mb-2 bg-light text-dark font-weight-bold"  style="text-align:center" colspan="6">
+      <p>Phí giao hàng: 40.000vnđ</p>
+      <p>Tổng tiền : <?php echo number_format($tongtien+40000,0,',','.').'vnđ' ?></p>
+    </td>
+  <?php } ?>
+  </tr>
 </table>
+<?php 
+  if($trangthai==2){
+    while($row = mysqli_fetch_array($query_pay)){
+  ?>
+    <h3 class="text-center font-weight-bold">Thông tin thanh toán</h3>
+    <form>
+      <div class="row">
+        <div class="col">
+          <label>Ghi chú thanh toán</label>
+          <input type="text" class="form-control" readonly placeholder="<?php echo $row['note']?>">
+        </div>
+        <div class="col">
+          <label>Mã thanh toán VNPAY</label>
+          <input type="text" class="form-control" readonly placeholder="<?php echo $row['code_vnpay']?>">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Mã ngân hàng</label>
+          <input type="text" class="form-control" readonly placeholder="<?php echo $row['code_bank']?>">
+        </div>
+        <div class="col">
+          <label>Thời gian thanh toán</label>
+          <input type="text" class="form-control" readonly placeholder="<?php echo $row['time']?>">
+        </div>
+      </div>
+    </form>
+  <?php    
+  }}
+?>
 </fieldset>

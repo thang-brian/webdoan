@@ -5,39 +5,26 @@
   while($row_chitiet = mysqli_fetch_array($query)){
         $id_khachhang = $row_chitiet['id_khachhang']; 
   }
-  $sql_lietke_dh = "SELECT * 
-  FROM
-      cart_details
-      RIGHT JOIN cart ON cart.code_cart = cart_details.code_cart
-      RIGHT JOIN sanpham ON cart_details.id_sanpham = sanpham.id_sanpham
-  WHERE cart.id_khachhang = '$id_khachhang' ORDER BY cart_details.id_cart_details DESC";
+  $sql_lietke_dh = "SELECT * FROM `cart` WHERE id_khachhang = '$id_khachhang' ORDER BY id_cart DESC";
   $query_lietke_dh = mysqli_query($mysqli,$sql_lietke_dh);
   
 ?>
 <h3>Lịch sử mua hàng</h3>
-<table class="table table-hover" style="width:100%" style="border-collapse: collapse;">
+<table class="table table-hover" style="width: 80%">
 <thead class="thead-light">
   <tr>
-      <th>Tên hàng</th>
-      <th>Số lượng</th>
-      <th>Đơn giá</th>
-      <th>Thành tiền</th>
-      <th>Tình trạng</th>
-    
+      <th class="text-center" style="width: 30%">Mã đơn hàng</th>
+      <th  class="text-center"style="width: 30%">Tình trạng</th>
+      <th class="text-center" style="width: 20%">Quản lý</th>
   </tr>
 </thead>
 <?php
   $i = 0;
   while($row = mysqli_fetch_array($query_lietke_dh)){
-    $i++;
-    $thanhtien = $row['giasp']*$row['soluongmua'];
   ?>
   <tr>
-    <td style="display:flex" ><?php echo $row['tensanpham'] ?> <p style="color:coral;padding-left:2px">- Mã đơn hàng: <a href="index.php?quanly=chitietls&id=<?php echo $row['code_cart'] ?>"><?php echo $row['code_cart'] ?></a></p></td>
-    <td><?php echo $row['soluongmua'] ?></td>
-    <td><?php echo number_format($row['giasp'],0,',','.').'vnđ' ?></td>
-    <td><?php echo number_format($thanhtien,0,',','.').'vnđ' ?></td>
-    <td>
+    <td class="text-center"><p><?php echo $row['code_cart'] ?></p></td>
+    <td class="text-center">
       <?php if($row['cart_status']==1){
         echo '<p style="color:blue">Đơn đợi duyệt</p>';
       }elseif($row['cart_status']==0){
@@ -53,6 +40,7 @@
       }
       ?>
     </td>
+    <td class="text-center"><a class="btn btn-info" href="index.php?quanly=chitietls&code=<?php echo $row['code_cart'] ?>">Xem đơn hàng</a></td>
 <?php 
   }
 ?>

@@ -6,6 +6,23 @@
 	$query_cate = mysqli_query($mysqli,$sql_cate);
 	$row_title = mysqli_fetch_array($query_cate);
 ?>
+				<style>
+					/* [1] The container */
+					.img-hover-zoom {
+					height: 200px; /* [1.1] Set it as per your need */
+					overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+					}
+
+					.img-hover-zoom img {
+					transition: transform .5s, filter 1.5s ease-in-out;
+					}
+
+					/* The Transformation */
+					.img-hover-zoom:hover img {
+					filter: grayscale(0);
+					transform: scale(1.1);
+					}
+				</style>
 <h3>Danh mục sản phẩm : <?php echo $row_title['tendanhmuc'] ?></h3>
 				<ul class="product_list">
 					<?php
@@ -13,7 +30,9 @@
 					?>
 					<li>
 						<a href="index.php?quanly=sanpham&id=<?php echo $row_pro['id_sanpham'] ?>">
-							<img src="admincp/modules/quanlysp/uploads/<?php echo $row_pro['hinhanh'] ?>">
+							<div class="img-hover-zoom">
+								<img src="admincp/modules/quanlysp/uploads/<?php echo $row_pro['hinhanh'] ?>">
+							</div>
 							<p class="title_product"><?php echo $row_pro['tensanpham'] ?></p>
 							<p class="price_product">Giá : <?php echo number_format($row_pro['giasp'],0,',','.').'vnđ' ?></p>
 						</a>
